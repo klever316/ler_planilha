@@ -1,10 +1,10 @@
 Enterpriseape::Application.routes.draw do
+  get 'search/index'
+
   resources :companies do 
     collection { post :import }
   end
-  
-  resources :invoices
 
-  root to: 'welcome#index'
+  root to: 'search#index'
   
 end
