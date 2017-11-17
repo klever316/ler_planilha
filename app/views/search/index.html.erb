@@ -4,6 +4,10 @@
 </div>    
 
 <div id="divPesquisa">
-  <input type="text" id="txtPesquisa" placeholder="Pesquisar..."/>
-  <button id="btnPesquisa">Pesquisar</button>
+  <%# <input type="text" id="txtPesquisa" placeholder="Nome da parte"/> %>
+  <%# <button id="btnPesquisa">Pesquisar</button> %>
+  <%= form_tag("/search/doSearch", method: 'post', :id => 'formPesquisa') do %>
+    <%= text_field_tag 'txtPesquisa', '', placeholder: 'Nome da Parte' %>
+    <%= submit_tag 'Pesquisar' , 'id' => 'btnPesquisa'%>
+  <% end %>
 </div>
