@@ -6,5 +6,7 @@ Enterpriseape::Application.routes.draw do
   end
 
   root to: 'search#index'
+  match '/request' => 'search#create', via: :post
+  match '/request' => 'search#create', via: :get
   
 end
