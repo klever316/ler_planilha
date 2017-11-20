@@ -19,6 +19,7 @@ gem 'roo-xls'
 
 gem 'twitter-bootstrap-rails'
 gem "bootstrap-sass-rails", "~> 2.2.2.0"
+gem "font-awesome-rails"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

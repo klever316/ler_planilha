@@ -1,37 +1,27 @@
-require 'net/http'
-require 'json'
+require 'scpu-service.rb'
 
 class SearchController < ApplicationController
 
   def init
-    
+        
   end
 
   def index
+    
+  end
+
+  def list    
+    @processos = SCPUService.Processos()
   end
 
   def search
-    nome_parte = params.permit(:txtPesquisa)["txtPesquisa"]    
-    uri = URI('http://consultaprocesso.tjce.jus.br/scpu-web/api/consulta/nomeParte/')
-    data = { 
-      nomeParte: nome_parte, 
-      criterioConsulta: 2,
-      primeiroRegistro: 0,
-      quantidadeRegistros: 50
-    }
-    http = Net::HTTP.new(uri.host, uri.port)
-    request = Net::HTTP::Post.new(uri.request_uri, {"Content-Type" => "application/json", "Accept" => "application/json"})
-    request.body = data.to_json
+    nome_parte = params.permit(:txtPesquisa)["txtPesquisa"]
+    @processos = SCPUService.Search(nome_parte)          
+    redirect_to :search_doSearch
+  end
 
-    res = http.request(request)    
-    json = JSON.parse(res.body)
-    processos = Array.new
-    json.each do |item|
-      puts item.inspect
-      proc = item.slice("numeroFormatado", "unidade", "situacao", "sistema", "flagSegredoJustica", "classeJudicial")
-      processos << proc
-    end
-
-    head :no_content
+  def destroy
+    SCPUService.Remove(params["id"])    
+    redirect_to :search_doSearch
   end
 end

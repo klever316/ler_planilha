@@ -1,0 +1,49 @@
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover dataTables-example" >
+    <thead>
+        <tr>
+          <th>Processo</th>
+          <th>Data Distribuição</th>
+          <th>Assunto</th>
+          <th>Unidade</th>
+          <th>Classe</th>                   
+          <th>Situação</th>
+          <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @processos.each do |processo| %>
+          <tr>
+            <td><%= processo["numeroFormatado"] %></td>
+            <% if processo["flagSegredoJustica"] == "N"%>              
+              <td><%= processo["dataDistribuicao"] %></td>
+              <td><%= processo["assuntoPrincipal"] %></td>
+              <td><%= processo["unidade"] %></td>    
+              <td><%= processo["classeJudicial"] %></td>              
+              <td><%= processo["situacao"] %></td>
+            <% else %>
+              <td colspan="4" class="footable-visible">                    
+                O processo consultado tramita em segredo de justiça, nos termos da Resolução n° 121, de 5 de outubro de 2010 do CNJ.
+              <td>
+            <% end %>
+            <td>                
+                <%= link_to fa_icon("trash"), processo, class: "btn btn-sm btn-danger", data: { method: :delete } %>
+            </td>        
+          </tr>
+        <% end %> 
+    </tbody>  
+    <tfoot>
+      <tr>
+        <td colspan="6" class="footable-visible">
+            <ul class="pagination pull-right">
+              
+            </ul>
+          </td>
+        <td>
+          <%= link_to "Nova Pesquisa", search_index_path ,class: "btn btn-sm btn-primary" %>
+        </td>
+      </tr> 
+    </tfoot>
+  </table>
+
+</div>
