@@ -1,0 +1,14 @@
+<div class="page">
+	<br>
+    <div class="title" style="text-align: center;"><h1>Resultado da pesquisa</h1></div>
+</div>   
+<% if @processos.length > 0%>
+    <%= render 'table' %>
+<% else %>
+    <div style="text-align: center;">
+        <br>
+        <br>
+        <h4>Não foi encontrado resultados para o Nome informado.</h4>
+        <%= link_to "Voltar", search_index_path ,class: "btn btn-sm btn-primary" %>
+    </div>
+<% end %>
