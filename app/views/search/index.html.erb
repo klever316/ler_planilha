@@ -1,14 +1,33 @@
-<div class="page">
-	<br>
-    <div class="title" style="text-align: center;"><h1>Pesquisa por nome da parte</h1></div>
+<div class="row justify-content-center">  
+   <h1>Pesquisa por nome da parte</h1>  
 </div>    
 
-<div id="divPesquisa">
+<div id="row">
   <%# <input type="text" id="txtPesquisa" placeholder="Nome da parte"/> %>
   <%# <button id="btnPesquisa">Pesquisar</button> %>
-  <%= form_tag("/search/doSearch", method: 'post', :id => 'formPesquisa') do %>
-    <%= text_field_tag 'txtPesquisa', '', placeholder: 'Nome da Parte' %>
-    <%= submit_tag 'Pesquisar' , 'id' => 'btnPesquisa'%>
+  <%= form_tag("/search/doSearch", method: 'post') do %>
+    <div class="row">
+      <div class="col">
+        <label for="txtPesquisa">Nome da Parte</label>
+        <%= text_field_tag 'txtPesquisa', '', placeholder: 'Nome da Parte', class: "form-control" %>      
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="polo">Polo:</label>
+        <%= select_tag 'polo',  "<option>Todos</option><option>Ativo</option><option>Passivo</option>".html_safe, class: "form-control"%>
+      </div>
+      <div class="col">
+        <label for="polo" >Área:</label>
+        <%= select_tag 'polo',  "<option>Todos</option><option>Ativo</option><option>Passivo</option>".html_safe, class: "form-control"%>
+      </div>
+    </div>
+    <div class="form-group row mt-2">
+      <div class="col">
+        <%= button_tag 'Pesquisar' , class: 'btn btn-primary'%>
+      </div>
+    </div>    
   <% end %>  
 
 </div>
+
