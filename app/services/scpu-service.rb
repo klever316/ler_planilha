@@ -3,6 +3,8 @@ require 'json'
 
 class SCPUService
 
+    @@processos = Array.new
+
     def self.Search(nome_parte)
         
         uri = URI('http://consultaprocesso.tjce.jus.br/scpu-web/api/consulta/nomeParte/')
@@ -16,14 +18,24 @@ class SCPUService
         request = Net::HTTP::Post.new(uri.request_uri, {"Content-Type" => "application/json", "Accept" => "application/json"})
         request.body = data.to_json
     
-        res = http.request(request)   
-        puts res.body 
+        res = http.request(request)           
         json = JSON.parse(res.body)        
-        processos = Array.new
+        @@processos = Array.new
         json.each do |item|                 
           proc = item.slice("id", "numeroFormatado", "unidade", "situacao", "sistema", "flagSegredoJustica", "classeJudicial", "nomeMae", "assuntoPrincipal")
-          processos << proc
+          if(item["dataDistribuicao"] != nil)
+            proc["dataDistribuicao"] = Time.at(item["dataDistribuicao"].to_f / 1000).strftime("%m/%d/%Y %T")
+          end
+          @@processos << proc
         end        
-        processos
+        @@processos
+    end
+
+    def self.Processos
+      @@processos
+    end
+
+    def self.Remove(id)
+      @@processos = @@processos.select{|proc| proc["id"] != id}      
     end
 end

@@ -3,11 +3,11 @@
     <thead>
         <tr>
           <th>Processo</th>
-          <th>Situação</th>
+          <th>Data Distribuição</th>
           <th>Assunto</th>
           <th>Unidade</th>
-          <th>Classe</th>
-          <th>Sistema</th>          
+          <th>Classe</th>                   
+          <th>Situação</th>
           <th></th>
         </tr>
     </thead>
@@ -15,12 +15,12 @@
         <% @processos.each do |processo| %>
           <tr>
             <td><%= processo["numeroFormatado"] %></td>
-            <% if processo["flagSegredoJustica"] == "N"%>
-              <td><%= processo["situacao"] %></td>
+            <% if processo["flagSegredoJustica"] == "N"%>              
+              <td><%= processo["dataDistribuicao"] %></td>
               <td><%= processo["assuntoPrincipal"] %></td>
               <td><%= processo["unidade"] %></td>    
-              <td><%= processo["classeJudicial"] %></td>
-              <td><%= processo["sistema"] %></td>
+              <td><%= processo["classeJudicial"] %></td>              
+              <td><%= processo["situacao"] %></td>
             <% else %>
               <td colspan="4" class="footable-visible">                    
                 O processo consultado tramita em segredo de justiça, nos termos da Resolução n° 121, de 5 de outubro de 2010 do CNJ.

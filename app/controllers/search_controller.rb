@@ -1,5 +1,3 @@
-require 'net/http'
-require 'json'
 require 'scpu-service.rb'
 
 class SearchController < ApplicationController
@@ -13,20 +11,17 @@ class SearchController < ApplicationController
   end
 
   def list    
-    @processos = session[:processos]
+    @processos = SCPUService.Processos()
   end
 
   def search
     nome_parte = params.permit(:txtPesquisa)["txtPesquisa"]
-    @processos = SCPUService.Search(nome_parte)      
-    session[:processos] = @processos
+    @processos = SCPUService.Search(nome_parte)       
     redirect_to :search_doSearch
   end
 
   def destroy
-    puts params.inspect
-    @processos = session[:processos]
-    session[:processos] = @processos.select{|proc| proc["id"] != params["id"]}
+    SCPUService.Remove(params["id"])    
     redirect_to :search_doSearch
   end
 
