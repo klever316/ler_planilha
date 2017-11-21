@@ -16,7 +16,7 @@ class SearchController < ApplicationController
 
   def search
     nome_parte = params.permit(:txtPesquisa)["txtPesquisa"]
-    @processos = SCPUService.Search(nome_parte)          
+    @processos = SCPUService.Search(nome_parte)       
     redirect_to :search_doSearch
   end
 
@@ -24,4 +24,6 @@ class SearchController < ApplicationController
     SCPUService.Remove(params["id"])    
     redirect_to :search_doSearch
   end
+
+  
 end

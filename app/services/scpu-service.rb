@@ -2,6 +2,7 @@ require 'net/http'
 require 'json'
 
 class SCPUService
+
     @@processos = Array.new
 
     def self.Search(nome_parte)
