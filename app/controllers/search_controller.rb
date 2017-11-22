@@ -15,8 +15,10 @@ class SearchController < ApplicationController
   end
 
   def search
-    nome_parte = params.permit(:txtPesquisa)["txtPesquisa"]
-    @processos = SCPUService.Search(nome_parte)       
+    puts params.inspect
+    nome_parte = params["txtPesquisa"]
+    poloFiltro = params["polo"]
+    @processos = SCPUService.Search(nome_parte, poloFiltro)       
     redirect_to :search_doSearch
   end
 
