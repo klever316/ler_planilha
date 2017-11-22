@@ -9,7 +9,10 @@
     <div class="row">
       <div class="col">
         <label for="txtPesquisa">Nome da Parte</label>
-        <%= text_field_tag 'txtPesquisa', '', placeholder: 'Nome da Parte', class: "form-control" %>      
+        <%= text_field_tag 'txtPesquisa', '', placeholder: 'Nome da Parte', class: "form-control", :required => true %>    
+        <div class="invalid-feedback">
+          Por favor forneca o nome da parte
+        </div>
       </div>
     </div>
     <div class="row">
@@ -28,6 +31,5 @@
       </div>
     </div>    
   <% end %>  
-
+  
 </div>
-

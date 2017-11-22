@@ -15,11 +15,15 @@ class SearchController < ApplicationController
   end
 
   def search
-    puts params.inspect
-    nome_parte = params["txtPesquisa"]
-    poloFiltro = params["polo"]
-    @processos = SCPUService.Search(nome_parte, poloFiltro)       
-    redirect_to :search_doSearch
+    if(params["txtPesquisa"].delete(' ') == "")
+      flash[:danger] = "Por favor forneça um nome"
+      redirect_to :search_index
+    else
+      nome_parte = params["txtPesquisa"]
+      poloFiltro = params["polo"]
+      @processos = SCPUService.Search(nome_parte, poloFiltro)       
+      redirect_to :search_doSearch
+    end    
   end
 
   def destroy
