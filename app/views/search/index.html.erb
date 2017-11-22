@@ -17,9 +17,9 @@
         <label for="polo">Polo:</label>
         <%= select_tag 'polo',  "<option>Todos</option><option>Ativo</option><option>Passivo</option>".html_safe, class: "form-control"%>
       </div>
-      <div class="col">
-        <label for="polo" >Área:</label>
-        <%= select_tag 'polo',  "<option>Todos</option><option>Ativo</option><option>Passivo</option>".html_safe, class: "form-control"%>
+      <div class="col" style="visibility: hidden;">
+        <label for="polo">Área:</label>
+        <%= select_tag 'area', "<option>Todos</option><option>Fortaleza</option>".html_safe, class: "form-control" %>
       </div>
     </div>
     <div class="form-group row mt-2">

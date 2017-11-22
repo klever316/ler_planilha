@@ -5,7 +5,7 @@ class SCPUService
 
     @@processos = Array.new
 
-    def self.Search(nome_parte)
+    def self.Search(nome_parte, poloFiltro)
         
         uri = URI('http://consultaprocesso.tjce.jus.br/scpu-web/api/consulta/nomeParte/')
         data = { 
@@ -21,14 +21,20 @@ class SCPUService
         res = http.request(request)           
         json = JSON.parse(res.body)        
         @@processos = Array.new
-        json.each do |item|                 
-          proc = item.slice("id", "numeroFormatado", "unidade", "situacao", "sistema", "flagSegredoJustica", "classeJudicial", "nomeMae", "assuntoPrincipal")
+        json.each do |item|                          
           if(item["dataDistribuicao"] != nil)
-            proc["dataDistribuicao"] = Time.at(item["dataDistribuicao"].to_f / 1000).strftime("%m/%d/%Y %T")
+            item["dataDistribuicao"] = Time.at(item["dataDistribuicao"].to_f / 1000).strftime("%m/%d/%Y %T")
           end
-          @@processos << proc
-        end        
-        @@processos
+
+          if(poloFiltro == "Todos")
+            @@processos << item
+          else
+            if(item["partes"].any? { |parte| parte["nome"].downcase == nome_parte.downcase && parte["tipoPolo"].downcase == poloFiltro.downcase })
+              @@processos << item              
+            end
+          end
+
+        end      
     end
 
     def self.Processos
