@@ -8,6 +8,8 @@ Enterpriseape::Application.routes.draw do
     collection { post :import }
   end
 
+  get 'negative_not_valid' => 'negative#notValidToProccess'
+
   root to: 'search#index'
   
 end

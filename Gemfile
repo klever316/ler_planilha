@@ -20,6 +20,8 @@ gem 'roo-xls'
 gem "font-awesome-rails"
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'popper_js'
+gem 'prawn-rails'
+gem "cpf_cnpj"
 # Use SCSS for stylesheets
 gem 'sass-rails'
 

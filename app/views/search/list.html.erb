@@ -10,5 +10,7 @@
         <br>
         <h4>Não foi encontrado resultados para o Nome informado.</h4>
         <%= link_to "Voltar", search_index_path ,class: "btn btn-sm btn-primary" %>
+        <%= link_to 'Export', {:controller => "negative", :action => "notValidToProccess", 
+            :nome_parte => @nome_parte, :polo => @polo, :doc => @doc }, target: "_blank" %>
     </div>
 <% end %>
