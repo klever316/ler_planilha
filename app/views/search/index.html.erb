@@ -9,10 +9,11 @@
     <div class="row">
       <div class="col">
         <label for="txtPesquisa">Nome da Parte</label>
-        <%= text_field_tag 'txtPesquisa', '', placeholder: 'Nome da Parte', class: "form-control", :required => true %>    
-        <div class="invalid-feedback">
-          Por favor forneca o nome da parte
-        </div>
+        <%= text_field_tag 'txtPesquisa', '', placeholder: 'Nome da Parte', class: "form-control", :required => true %>           
+      </div>
+      <div class="col">
+        <label for="doc">CPF/CNPJ</label>
+        <%= text_field_tag 'doc', '', placeholder: 'CPF/CNPJ', class: "form-control", :required => true %>           
       </div>
     </div>
     <div class="row">
