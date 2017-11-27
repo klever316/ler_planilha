@@ -16,6 +16,7 @@ class SearchController < ApplicationController
     @nome_parte = search_params[:nome_parte]
     @polo = search_params[:polo]
     @doc = search_params[:doc]
+    @mother = search_params[:mother]
   end
 
   def search
@@ -26,7 +27,7 @@ class SearchController < ApplicationController
       nome_parte = params["txtPesquisa"]
       poloFiltro = params["polo"]
       @processos = SCPUService.Search(nome_parte, poloFiltro)       
-      redirect_to controller: 'search', action:'list', nome_parte: nome_parte, polo: poloFiltro, doc: params["doc"]
+      redirect_to controller: 'search', action:'list', nome_parte: nome_parte, polo: poloFiltro, doc: params["doc"], mother: params["mother"]
     end    
   end
 
@@ -38,7 +39,7 @@ class SearchController < ApplicationController
   private
 
     def search_params
-      params.permit(:txtPesquisa, :nome_parte, :polo, :area, :doc)
+      params.permit(:txtPesquisa, :nome_parte, :polo, :area, :doc, :mother)
     end
 
   
