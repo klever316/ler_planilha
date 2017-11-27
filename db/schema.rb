@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411024400) do
+ActiveRecord::Schema.define(version: 20171124140523) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -48,9 +48,11 @@ ActiveRecord::Schema.define(version: 20140411024400) do
     t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["username"], name: "index_users_on_username"
 
 end
