@@ -10,6 +10,7 @@ Enterpriseape::Application.routes.draw do
   end
 
   get 'negative_not_valid' => 'negative#notValidToProccess'
+  get 'negative_valid' => 'negative#validToProccess'
 
   root to: 'search#index'
   
