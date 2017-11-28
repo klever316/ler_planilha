@@ -14,3 +14,5 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+public/negative_not_valid.pdf
+public/negative_valid.pdf
