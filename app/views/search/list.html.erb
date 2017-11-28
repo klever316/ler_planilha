@@ -4,6 +4,8 @@
 </div>   
 <% if @processos.length > 0%>
     <%= render 'table' %>
+    <input type="button" value="select table"
+                onclick="selectElementContents( document.getElementById('tableResults') );">
 <% else %>
     <div style="text-align: center;">
         <br>
@@ -15,5 +17,6 @@
 
         <%= link_to 'Export Valid', {:controller => "negative", :action => "validToProccess", 
             :nome_parte => @nome_parte, :polo => @polo, :doc => @doc, :mother => @mother }, target: "_blank" %>
+            
     </div>
 <% end %>
