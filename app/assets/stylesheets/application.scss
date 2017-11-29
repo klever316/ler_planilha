@@ -17,6 +17,9 @@
  */
  @import "bootstrap";
  @import "login";
+ @import "search";
+ @import "header";
+ @import "footer";
 
  body {
      display: flex;
@@ -25,7 +28,7 @@
      font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
  }
 
- label, h1, span {
+ label, h3, span {
      color:#676a6c;
  }
 
@@ -64,5 +67,15 @@
     background-color: #1ab394;
     border-color: #1ab394;
 }
+.content {
+    background: linear-gradient(rgb(157, 203, 193), rgb(230, 242, 240) 40%, rgb(255, 255, 255));    
+}
 
+.h-10 {
+    height: 10% !important;
+}
+
+.h-90 {
+    height: 90% !important;
+}
 

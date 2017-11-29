@@ -1,43 +1,46 @@
-<div class="row justify-content-center">  
-   <h1>Pesquisa por nome da parte</h1>  
-</div>    
 
-<div id="row">
-  <%# <input type="text" id="txtPesquisa" placeholder="Nome da parte"/> %>
-  <%# <button id="btnPesquisa">Pesquisar</button> %>
-  <%= form_tag("/search/doSearch", method: 'post') do %>
-    <div class="row">
-      <div class="col">
-        <label for="txtPesquisa">Nome da Parte</label>
-        <%= text_field_tag 'txtPesquisa', '', placeholder: 'Nome da Parte', class: "form-control", :required => true %>           
-      </div>
-      <div class="col">
-        <label for="mother">Nome da mãe/pai</label>
-        <%= text_field_tag 'mother', '', placeholder: 'Nome da mãe ou do pai', class: "form-control" %>           
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <label for="doc">CPF/CNPJ</label>
-        <%= text_field_tag 'doc', '', placeholder: 'CPF/CNPJ', class: "form-control" %>           
-      </div>
-      <div class="col">        
-        <label for="polo">Polo:</label>
-        <%= select_tag 'polo',  "<option>Todos</option><option>Ativo</option><option>Passivo</option>".html_safe, class: "form-control"%>
-      </div>
+<div class="row h-90 w-100 align-items-center justify-content-center content no-gutters">
+  <div class="col-7 pl-5 pr-5 pt-3 pb-3 search-content">
+    <div class="row justify-content-center mb-3">  
+      <h3>Pesquisa por nome da parte</h3>  
+    </div>    
+
+    <div class="">
+      <%= form_tag("/search/doSearch", method: 'post') do %>
+        <div class="row">
+          <div class="col">
+            <label for="txtPesquisa">Nome da Parte</label>
+            <%= text_field_tag 'txtPesquisa', '', placeholder: 'Nome da Parte', class: "form-control", :required => true %>           
+          </div>
+          <div class="col">
+            <label for="mother">Nome da mãe/pai</label>
+            <%= text_field_tag 'mother', '', placeholder: 'Nome da mãe ou do pai', class: "form-control" %>           
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="doc">CPF/CNPJ</label>
+            <%= text_field_tag 'doc', '', placeholder: 'CPF/CNPJ', class: "form-control" %>           
+          </div>
+          <div class="col">        
+            <label for="polo">Polo:</label>
+            <%= select_tag 'polo',  "<option>Todos</option><option>Ativo</option><option>Passivo</option>".html_safe, class: "form-control"%>
+          </div>
+          
+        </div>
+        <div class="form-group row mt-2">
+          <div class="col">
+            <%= button_tag 'Pesquisar' , class: 'btn btn-success'%>
+          </div>
+        </div>    
+      <% end %>  
+
+    <!--
+      <div class="col" style="visibility: hidden;">
+            <label for="polo">Área:</label>
+            <%= select_tag 'area', "<option>Todos</option><option>Fortaleza</option>".html_safe, class: "form-control" %>
+          </div>-->
       
     </div>
-    <div class="form-group row mt-2">
-      <div class="col">
-        <%= button_tag 'Pesquisar' , class: 'btn btn-primary'%>
-      </div>
-    </div>    
-  <% end %>  
-
-<!--
-  <div class="col" style="visibility: hidden;">
-        <label for="polo">Área:</label>
-        <%= select_tag 'area', "<option>Todos</option><option>Fortaleza</option>".html_safe, class: "form-control" %>
-      </div>-->
-  
+  </div>
 </div>
