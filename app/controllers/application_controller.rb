@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_in, keys: [:username])
       #devise_parameter_sanitizer.for(:sign_in) << :username
     end
+
+    def title(page_title)
+      content_for :title, page_title.to_s
+    end
 end
