@@ -16,8 +16,67 @@
  
  */
  @import "bootstrap";
+ @import "login";
+ @import "search";
+ @import "header";
+ @import "footer";
 
  body {
      display: flex;
      height:100vh;
+     background-color: #f3f3f4;
+     font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
  }
+
+ label, h3, span {
+     color:#676a6c;
+ }
+
+ .form-control:focus {
+     border-color: #1ab394 !important;
+     -webkit-box-shadow: 0 0 0 0.2rem rgba(26, 179, 148, 0.25);
+     box-shadow: 0 0 0 0.2rem rgba(26, 179, 148, 0.25);
+}
+
+.btn-success:hover, .btn-success:hover:active, .btn-success:active {
+    background-color: #18a689;
+    border-color: #18a689;
+    color: white;
+}
+
+.btn-success:focus, .btn-success.focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 166, 137, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(24, 166, 137, 0.25);
+}
+
+.btn-success:not([disabled]):not(.disabled):active, .btn-success:not([disabled]):not(.disabled).active, .show > .btn-success.dropdown-toggle
+{
+    background-color: #18a689;
+    border-color: #18a689;
+    color: white;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 166, 137, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(24, 166, 137, 0.25);
+}
+
+.btn:active {
+    -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.125)
+}
+
+.btn-success {
+    background-color: #1ab394;
+    border-color: #1ab394;
+}
+.content {
+    background: linear-gradient(rgb(157, 203, 193), rgb(230, 242, 240) 40%, rgb(255, 255, 255));    
+}
+
+.h-10 {
+    height: 10% !important;
+}
+
+.h-90 {
+    height: 90% !important;
+}
+
+

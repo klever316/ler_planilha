@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Certidões</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <div class="container">      
+      
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-4 col-center">
+                <h2 class="system-title">SiN-Certis</h2>
+                <div class="row justify-content-center">
+                <img alt="image" id="logo" src="<%= image_url 'logo-tj.png' %>"/>
+                </div>
+                <div class="row justify-content-center gov-names">
+                <p>
+                    Tribunal de Justiça do Estado do Ceará<br>
+                    Estado do Ceará<br>
+                    Poder Judiciário<br>
+                    Comarca de Fortaleza<br>
+                    Diretoria do Fórum Clóvis Beviláqua<br>
+                    Gerencia de Informática
+                </p>
+                </div>
+            </div>
+            <div class="col-4">
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="row">
+                    <div class="col">
+                    <%= f.label :matricula %><br />
+                    <%= f.text_field :username, autofocus: true, class: "form-control" %>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <%= f.label :senha %><br />
+                    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+                </div>
+
+                <% if devise_mapping.rememberable? -%>
+                    <div class="field">
+                    <%= f.check_box :remember_me %>
+                    <%= f.label :Lembrar %>
+                    </div>
+                <% end -%>
+
+                <div class="actions">
+                    <%= f.submit "Entrar", class: 'btn btn-success btn-block' %>
+                </div>
+                <% end %>
+            </div>
+        </div>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %> alert-dismissible fade show">
+          <%= value %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </body>
+</html>

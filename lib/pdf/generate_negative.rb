@@ -71,7 +71,7 @@ module GeneratePdf
         certifico3 = "<b>CERTIFICO</b>, finalmente, que esta certidão só é <b>válida por 30 (trinta) dias</b>, a contar da data de sua emissão, <b>sem rasuras ou emendas, com assinatura do Agente Público responsável e Selo de Autenticidade.</b>"
         
         puts nome_parte
-        certifico = self.set_placeholders(certifico, nome_parte, polo, doc, username)
+        certifico = self.set_placeholders(certifico, nome_parte, polo, doc, username, nil)
 
         Prawn::Document.new(PDF_OPTIONS) do |pdf|
 

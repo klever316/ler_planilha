@@ -8,9 +8,12 @@
   </head>
   <body>
 
-    <div class="container">
-      
+
+    <div class="container-fluid p-0">     
+      <%= render 'layouts/header' %> 
+
       <%= yield %>
+
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %> alert-dismissible fade show">
           <%= value %>
@@ -19,6 +22,8 @@
           </button>
         </div>
       <% end %>
+
+      <%= render 'layouts/footer' %> 
     </div>
 
   </body>

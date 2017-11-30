@@ -1,35 +1,7 @@
-#divPesquisa{
-  background-color:#E0EEEE;
-  border:solid 2px #5F9EA0;
-  border-radius:10px;
-  width:285px;
-  height:38px;
-  position: relative;
-	top: 80px;	
-	left: 35%;
+.search-content {
 
-}
-
-#txtPesquisa{
-  float:left;
-  background-color:transparent;
-  padding-left:13px; 
-  font-size:18px;
-  border:none;
-  height:30px;
-  width:191px;
-}
-
-#formPesquisa > input[type="submit"]{
-  border:none;
-  float:left;
-  height:38px;
-  border-radius:0 7px 7px 0;
-  width:75px;
-  font-weight:bold;
-  background:#5F9EA0;
-}
-
-a:visited {
-  color: #fff
+  background-color: white;
+  // -webkit-box-shadow: inset 0px 2px 24px -2px rgba(0,0,0,0.25);
+  // -moz-box-shadow: inset 0px 2px 24px -2px rgba(0,0,0,0.25);
+  // box-shadow: inset 0px 2px 24px -2px rgba(0,0,0,0.25);
 }
