@@ -6,7 +6,8 @@
           <th>Data Distribuição</th>
           <th>Assunto</th>
           <th>Unidade</th>
-          <th>Classe</th>                   
+          <th>Classe</th>  
+          <th>Tipo Parte</th>                 
           <th>Situação</th>
           <th></th>
         </tr>
@@ -16,11 +17,12 @@
           <tr>
             <td><%= processo["numeroFormatado"] %></td>
             <% if processo["flagSegredoJustica"] == "N"%>              
-              <td><%= processo["dataDistribuicao"] %></td>
+              <td><%= processo["dataDistribuicao"] %></td> 
               <td><%= processo["assuntoPrincipal"] %></td>
               <td><%= processo["unidade"] %></td>    
               <td><%= processo["classeJudicial"] %></td>              
-              <td><%= processo["situacao"] %></td>
+              <td><%= processo["tipoParte"]%></td>
+              <td><%= processo["situacao"] %></td>              
             <% else %>
               <td colspan="4" class="footable-visible">                    
                 O processo consultado tramita em segredo de justiça, nos termos da Resolução n° 121, de 5 de outubro de 2010 do CNJ.
