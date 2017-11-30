@@ -23,13 +23,13 @@ class SCPUService
         @@processos = Array.new
         json.each do |item|                          
           if(item["dataDistribuicao"] != nil)
-            item["dataDistribuicao"] = Time.at(item["dataDistribuicao"].to_f / 1000).strftime("%m/%d/%Y %T")
+            item["dataDistribuicao"] = Time.at(item["dataDistribuicao"].to_f / 1000).strftime("%d/%m/%Y %H:%M")
           end
 
           if(poloFiltro == "Todos")
             @@processos << item
           else
-            if(item["partes"].any? { |parte| parte["nome"].downcase == nome_parte.downcase && parte["tipoPolo"].downcase == poloFiltro.downcase })
+            if(item["partes"].any? { |parte| parte["nome"].downcase == nome_parte.downcase && parte["tipoPolo"].downcase == poloFiltro.downcase } || item["flagSegredoJustica"] == "S")
               @@processos << item              
             end
           end
