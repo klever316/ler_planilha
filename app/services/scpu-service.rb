@@ -26,6 +26,11 @@ class SCPUService
             item["dataDistribuicao"] = Time.at(item["dataDistribuicao"].to_f / 1000).strftime("%d/%m/%Y %H:%M")
           end
 
+          if item["partes"].length > 0
+            p = item["partes"].select { |parte| parte["nome"].downcase == nome_parte.downcase }.first            
+            item["tipoParte"] = p["tipoParte"]
+          end
+
           if(poloFiltro == "Todos")
             @@processos << item
           else
