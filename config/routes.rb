@@ -3,7 +3,7 @@ Enterpriseape::Application.routes.draw do
   get 'search/index'
   post 'search/doSearch' => 'search#search'  
   get 'search/doSearch' => 'search#list'
-  delete 'search/doSearch' => 'search#destroy'
+  delete 'search/:id' => 'search#destroy'
 
   resources :companies do 
     collection { post :import }

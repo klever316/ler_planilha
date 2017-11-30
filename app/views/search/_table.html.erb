@@ -24,12 +24,12 @@
               <td><%= processo["tipoParte"]%></td>
               <td><%= processo["situacao"] %></td>              
             <% else %>
-              <td colspan="4" class="footable-visible">                    
+              <td colspan="5" class="footable-visible">                    
                 O processo consultado tramita em segredo de justiça, nos termos da Resolução n° 121, de 5 de outubro de 2010 do CNJ.
               <td>
             <% end %>
             <td>                
-                <%= link_to fa_icon("trash"), processo, class: "btn btn-sm btn-danger", data: { method: :delete } %>
+                <%= link_to fa_icon("trash"), processo["id"], class: "btn btn-sm btn-danger", data: { method: :delete } %>
             </td>        
           </tr>
         <% end %> 

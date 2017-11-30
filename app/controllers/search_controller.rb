@@ -32,6 +32,7 @@ class SearchController < ApplicationController
   end
 
   def destroy
+    puts params.inspect
     SCPUService.Remove(params["id"])    
     redirect_to :search_doSearch
   end
