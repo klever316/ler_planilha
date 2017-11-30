@@ -17,6 +17,11 @@
         <br>
         <br>
         <h3>Não foi encontrado resultados para o Nome informado.</h3>
-        <%= link_to "Voltar", search_index_path ,class: "btn btn-sm btn-success" %>            
+        <%= link_to "Voltar", search_index_path ,class: "btn btn-sm btn-success" %>    
+        <%= link_to fa_icon("file-pdf-o", text: "Gerar Não Válida"), {:controller => "negative", :action => "notValidToProccess", 
+            :nome_parte => @nome_parte, :polo => @polo, :doc => @doc }, target: "_blank", class: "btn btn-sm btn-danger mr-2" %>
+
+        <%= link_to fa_icon("file-pdf-o", text: "Gerar Válida"), {:controller => "negative", :action => "validToProccess", 
+            :nome_parte => @nome_parte, :polo => @polo, :doc => @doc, :mother => @mother }, target: "_blank", class: "btn btn-sm btn-danger mr-2" %>        
     </div>
 <% end %>
