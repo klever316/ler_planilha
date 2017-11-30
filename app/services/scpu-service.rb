@@ -27,8 +27,10 @@ class SCPUService
           end
 
           if item["partes"].length > 0
-            p = item["partes"].select { |parte| parte["nome"].downcase == nome_parte.downcase }.first            
-            item["tipoParte"] = p["tipoParte"]
+            p = item["partes"].select { |parte| parte["nome"].downcase == nome_parte.downcase }.first    
+            if(p != nil)        
+              item["tipoParte"] = p["tipoParte"]
+            end
           end
 
           if(poloFiltro == "Todos")
