@@ -12,7 +12,7 @@
           <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody>        
         <% @processos.each do |processo| %>
           <tr>
             <td><%= processo["numeroFormatado"] %></td>
@@ -26,12 +26,12 @@
             <% else %>
               <td colspan="5" class="footable-visible">                    
                 O processo consultado tramita em segredo de justiça, nos termos da Resolução n° 121, de 5 de outubro de 2010 do CNJ.
-              <td>
+              <td> 
             <% end %>
-            <td>                
-                <%= link_to fa_icon("trash"), processo["id"], class: "btn btn-sm btn-danger", data: { method: :delete } %>
+            <td>   
+                <%= link_to fa_icon("trash"), processo["numero"], class: "btn btn-sm btn-danger", data: { method: :delete } %>
             </td>        
-          </tr>
+          </tr>          
         <% end %> 
     </tbody>  
     <tfoot>
