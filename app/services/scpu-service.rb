@@ -48,7 +48,7 @@ class SCPUService
       @@processos
     end
 
-    def self.Remove(id)
-      @@processos = @@processos.select{|proc| proc["id"] != id}      
+    def self.Remove(numero)
+      @@processos = @@processos.select{|proc| proc["numero"] != numero}      
     end
 end
