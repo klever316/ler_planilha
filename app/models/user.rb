@@ -11,12 +11,16 @@ class User < ActiveRecord::Base
     before_validation :get_ldap_email
     
     def get_ldap_email
-        if Devise::LDAP::Adapter.get_ldap_param(username, 'mail') 
+        if Devise::LDAP::Adapter.get_ldap_param(self.username, 'mail') 
             self.email = Devise::LDAP::Adapter.get_ldap_param(self.username,"mail").first
         else
             self.email = "#{username}@tjce.jus.br"
         end
-        self.name = Devise::LDAP::Adapter.get_ldap_param(self.username,"cn").first.force_encoding("utf-8")
+
+        if Devise::LDAP::Adapter.get_ldap_param(self.username,"cn")
+            puts Devise::LDAP::Adapter.get_ldap_param(self.username,"cn").inspect
+            self.name = Devise::LDAP::Adapter.get_ldap_param(self.username,"cn").first.force_encoding("utf-8")
+        end
     end
 
     # hack for remember_token
