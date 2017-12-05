@@ -12,17 +12,9 @@
           <div class="col">
             <label for="txtPesquisa">Nome da Parte</label>
             <%= text_field_tag 'txtPesquisa', '', placeholder: 'Nome da Parte', class: "form-control", :required => true %>           
-          </div>
-          <div class="col">
-            <label for="mother">Nome da mãe/pai</label>
-            <%= text_field_tag 'mother', '', placeholder: 'Nome da mãe ou do pai', class: "form-control" %>           
-          </div>
+          </div>          
         </div>
-        <div class="row">
-          <div class="col">
-            <label for="doc">CPF/CNPJ</label>
-            <%= text_field_tag 'doc', '', placeholder: 'CPF/CNPJ', class: "form-control" %>           
-          </div>
+        <div class="row">          
           <div class="col">        
             <label for="polo">Polo:</label>
             <%= select_tag 'polo',  "<option>Todos</option><option>Ativo</option><option>Passivo</option>".html_safe, class: "form-control"%>

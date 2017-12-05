@@ -1,27 +1,24 @@
 
+
 <% if @processos.length > 0%>    
 
     <%= render 'table' %>
     <div class="row no-gutters justify-content-end pr-3">
         <input type="button" value="Copiar" class="btn btn-sm btn-success mr-2"
-            onclick="selectElementContents( document.getElementById('tableResults') );">
-        <%= link_to fa_icon("file-pdf-o", text: "Gerar Não Válida"), {:controller => "negative", :action => "notValidToProccess", 
-            :nome_parte => @nome_parte, :polo => @polo, :doc => @doc }, target: "_blank", class: "btn btn-sm btn-danger mr-2" %>
-
-        <%= link_to fa_icon("file-pdf-o", text: "Gerar Válida"), {:controller => "negative", :action => "validToProccess", 
-            :nome_parte => @nome_parte, :polo => @polo, :doc => @doc, :mother => @mother }, target: "_blank", class: "btn btn-sm btn-danger mr-2" %>
+            onclick="selectElementContents( document.getElementById('tableResults') );">  
+        <button type="button" class="btn btn-danger mr-2" data-toggle="modal" data-target="#myModal">
+            <i class="fa fa-file-pdf-o"></i> Gerar Certidão
+        </button>      
         <%= link_to "Nova Pesquisa", search_index_path ,class: "btn btn-sm btn-primary" %>
+        
     </div>
 <% else %>
     <div style="text-align: center;">
         <br>
         <br>
         <h3>Não foi encontrado resultados para o Nome informado.</h3>
-        <%= link_to "Voltar", search_index_path ,class: "btn btn-sm btn-success" %>    
-        <%= link_to fa_icon("file-pdf-o", text: "Gerar Não Válida"), {:controller => "negative", :action => "notValidToProccess", 
-            :nome_parte => @nome_parte, :polo => @polo, :doc => @doc }, target: "_blank", class: "btn btn-sm btn-danger mr-2" %>
-
-        <%= link_to fa_icon("file-pdf-o", text: "Gerar Válida"), {:controller => "negative", :action => "validToProccess", 
-            :nome_parte => @nome_parte, :polo => @polo, :doc => @doc, :mother => @mother }, target: "_blank", class: "btn btn-sm btn-danger mr-2" %>        
+        <%= link_to "Voltar", search_index_path ,class: "btn btn-sm btn-success" %>            
     </div>
 <% end %>
+
+<%= render 'modal'%>
