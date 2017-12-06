@@ -25,6 +25,7 @@ gem "cpf_cnpj"
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise_ldap_authenticatable'
+gem 'will_paginate', '~> 3.1.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'

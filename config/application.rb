@@ -26,5 +26,7 @@ module Enterpriseape
       # Configure single controller layout
       Devise::SessionsController.layout "login"
     end
+
+    config.i18n.default_locale = "pt-BR"
   end
 end
