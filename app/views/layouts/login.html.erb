@@ -9,7 +9,14 @@
   <body>
 
     <div class="container">      
-      
+         <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %> alert-dismissible fade show">
+                <%= value %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <% end %>
         <div class="row justify-content-center align-items-center h-100">
             <div class="col-4 col-center">
                 <h2 class="system-title">SiN-Certis</h2>
@@ -54,14 +61,6 @@
                 <% end %>
             </div>
         </div>
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %> alert-dismissible fade show">
-          <%= value %>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      <% end %>
     </div>
   </body>
 </html>
