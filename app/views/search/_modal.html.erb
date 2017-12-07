@@ -1,0 +1,53 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Gerar Certidão</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_tag("/agreement/make", method: 'post') do %>          
+          <div class="row">
+            <div class="col">        
+              <label for="goal">Finalidade:</label>
+              <%= select_tag 'goal',  "<option value='invalid'>Não válida para processo</option><option value='valid'>Valida para processo</option>".html_safe, class: "form-control"%>
+            </div>            
+          </div>
+          <div class="row">
+            <div class="col">        
+              <label for="area">Área:</label>
+              <%= select_tag 'area',  "<option value='civel'>Civel</option><option value='crime'>Crime</option>".html_safe, class: "form-control"%>
+            </div>            
+          </div>
+          <div class="row">
+            <div class="col">        
+              <label for="type">Tipo:</label>
+              <%= select_tag 'type',  "<option value='nothing'>Nada Consta</option>".html_safe, class: "form-control"%>
+            </div>            
+          </div>
+          <div class="row">
+            <div class="col">        
+              <label for="cpf">CPF/CNPJ:</label>
+              <%= text_field_tag 'doc', '', placeholder: 'CPF/CNPJ', class: "form-control" %>  
+            </div>            
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="mother">Nome da mãe/pai</label>
+              <%= text_field_tag 'mother', '', placeholder: 'Nome da mãe ou do pai', class: "form-control" %>           
+            </div>
+          </div>    
+          <%= hidden_field_tag 'nome_parte', @nome_parte %>      
+          <%= hidden_field_tag 'polo', @polo %> 
+          <div class="form-group row mt-2">
+            <div class="col">
+              <%= button_tag fa_icon("file-pdf-o", text: "Gerar Certidão"), id: 'btn-gerar' , class: 'btn btn-danger', :formtarget => "_blank" %>
+            </div>
+          </div>    
+        <% end %>  
+      </div>
+    </div>
+  </div>
+</div>

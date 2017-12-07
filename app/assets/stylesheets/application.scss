@@ -27,10 +27,10 @@
      display: flex;
      height:100vh;
      background-color: #f3f3f4;
-     font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
  }
 
- label, h3, span {
+ label, h3, h4, span {
      color:#676a6c;
  }
 
@@ -81,4 +81,22 @@
     height: 90% !important;
 }
 
+td {
+    font-size: 0.8rem;
+}
+
+.alert-notice {
+    @extend .alert-success;
+}
+
+.alert-alert {
+    @extend .alert-danger;
+}
+    
+.alert {
+    position: absolute;
+    width: 50%;
+    right: 0.5rem;
+    top: 0.5rem;
+}
 

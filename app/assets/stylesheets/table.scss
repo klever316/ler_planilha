@@ -5,3 +5,45 @@
 .table-hover tbody tr:hover {
     background-color: rgba(24, 166, 137, 0.15);
 }
+
+thead {
+    font-size: 0.85rem;
+}
+
+.pagination > * {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #000000;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.pagination > .previous_page {
+    margin-left: 0;
+    border-bottom-left-radius: .25rem;
+    border-top-left-radius: .25rem;
+}
+
+.pagination > .previous_page.disabled, .pagination > .next_page.disabled {
+    opacity: 0.25;
+}
+
+
+.pagination > .next_page {
+    margin-left: 0;
+    border-bottom-right-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+.pagination > .current {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.pagination > a:hover {
+    color:black;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.3);
+}

@@ -17,6 +17,7 @@ class SearchController < ApplicationController
     @polo = search_params[:polo]
     @doc = search_params[:doc]
     @mother = search_params[:mother]
+    @page_results = @processos.paginate(search_params[:page], 10)
   end
 
   def search
@@ -40,7 +41,7 @@ class SearchController < ApplicationController
   private
 
     def search_params
-      params.permit(:txtPesquisa, :nome_parte, :polo, :area, :doc, :mother)
+      params.permit(:txtPesquisa, :nome_parte, :polo, :page)
     end
 
   
