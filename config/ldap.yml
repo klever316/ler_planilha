@@ -23,7 +23,7 @@ development:
  host: tjcead001.tj.ce.gov.br
  port: 389
  attribute: sAMAccountName
- base: OU=TJCE,DC=tj,DC=ce,DC=gov,DC=br
+ base: DC=tj,DC=ce,DC=gov,DC=br
  admin_user: LDAPopenfire
  admin_password: LDAPopenfire
  ssl: false
@@ -32,7 +32,7 @@ test:
  host: tjcead001.tj.ce.gov.br
  port: 389
  attribute: sAMAccountName
- base: OU=TJCE,DC=tj,DC=ce,DC=gov,DC=br
+ base: DC=tj,DC=ce,DC=gov,DC=br
  admin_user: LDAPopenfire
  admin_password: LDAPopenfire
  ssl: false
@@ -41,7 +41,7 @@ production:
  host: tjcead001.tj.ce.gov.br
  port: 389
  attribute: sAMAccountName
- base: OU=TJCE,DC=tj,DC=ce,DC=gov,DC=br
+ base: DC=tj,DC=ce,DC=gov,DC=br
  admin_user: LDAPopenfire
  admin_password: LDAPopenfire
  ssl: false
